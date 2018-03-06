@@ -83,9 +83,60 @@
       }
 
       function snapshot() {
+        setTimeout(function(){
          // Draws current image from the video element into the canvas
         ctx.drawImage(video, 0,0, canvas.width, canvas.height);
+        },5000);
       }
+
+//       $("#canvas").click(function(e){
+//      getPosition(e);
+// });
+
+var pointSize = 3;
+
+let xyArray = [];
+
+let i = 0;
+
+const a = document.getElementById("myCanvas");
+a.addEventListener("click",(event) => {
+  getPosition(event);
+});
+
+function getPosition(event){
+     var rect = canvas.getBoundingClientRect();
+     var x = event.clientX - rect.left;
+     var y = event.clientY - rect.top;
+     xyArray.push([x,y]);
+     drawCoordinates(x,y);
+     i++;
+     if(i>1){
+      drawLine(xyArray[i-2][0],xyArray[i-2][1],xyArray[i-1][0],xyArray[i-1][1])
+     }
+}
+
+function drawCoordinates(x,y){
+    var ctx = document.getElementById("myCanvas").getContext("2d");
+
+    ctx.fillStyle = "#ff2626"; // Red color
+    ctx.beginPath();
+    ctx.arc(x, y, pointSize, 0, Math.PI * 2, true);
+    ctx.fill();
+}
+
+const drawLine = (x1,y1,x2,y2) => {
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.stroke();
+};
+
+const angle = (x1,y1,x2,y2,x3,y3) => {
+
+}
 
   </script>
     <%= javascript_include_tag 'application' %>
