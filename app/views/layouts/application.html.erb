@@ -11,24 +11,6 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-      <body onload="init();">
-    <h1>Take a snapshot of the current video stream</h1>
-     <p>
-    <button onclick="startWebcam();">Start WebCam</button>
-    <!--     <button onclick="stopWebcam();">Stop WebCam</button>-->
-    </p>
-
-    <video onclick="snapshot(this);" width=800 height=600 id="video" autoplay></video>
-
-    <p>
-
-    <button onclick="snapshot();">Take Snapshot</button>
-
-    <p>
-
-    Picture : <p>
-      <canvas  id="myCanvas" width="800" height="600"></canvas>
-
     <%= yield %>
      </body>
     <%= javascript_include_tag 'application' %>

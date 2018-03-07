@@ -1,5 +1,25 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
 
- <p>
+<body onload="init();">
+    <h1>Welcome to Posture Cam</h1>
+    <h6>press "start" to begin</h6>
+     <p>
+    <button onclick="startWebcam();">Start</button>
+    <!--     <button onclick="stopWebcam();">Stop WebCam</button>-->
+    </p>
 
+    <video width=800 height=600 id="video" autoplay></video>
+
+    <p>
+
+    <button id="button2" onclick="snapshot(); hideVideo();">Take Snapshot</button>
+
+    <p>
+
+    Picture : <p>
+      <canvas  id="myCanvas" width="800" height="600"></canvas>
+
+<script>
+
+
+
+</script>
