@@ -5,7 +5,6 @@ navigator.getUserMedia = ( navigator.getUserMedia ||
                    navigator.webkitGetUserMedia ||
                    navigator.mozGetUserMedia ||
                    navigator.msGetUserMedia);
-
 var video;
 var webcamStream;
 
@@ -33,31 +32,44 @@ function startWebcam() {
      );
   } else {
      console.log("getUserMedia not supported");
-  }
-}
+  };
+};
 
-  // function stopWebcam() {
-  //     webcamStream.stop();
-  // }
       //---------------------
       // TAKE A SNAPSHOT CODE
       //---------------------
     var canvas, ctx;
+
+
 
     function init() {
       // Get the canvas and obtain a context for
       // drawing in it
       canvas = document.getElementById("myCanvas");
       ctx = canvas.getContext('2d');
-    }
+    };
+
+    function hideVideo(){
+      setTimeout(function(){
+
+        const v = document.getElementById('video');
+        v.parentNode.removeChild(v);
+
+      },6000);
+    };
+
+
 
     function snapshot() {
       setTimeout(function(){
        // Draws current image from the video element into the canvas
       ctx.drawImage(video, 0,0, canvas.width, canvas.height);
       },5000);
+
       // above is delay for 5 seconds;
-    }
+    };
+
+
 
 //       $("#canvas").click(function(e){
 //      getPosition(e);
@@ -76,6 +88,7 @@ let angleResult = 0;
 const a = document.getElementById("myCanvas");
 a.addEventListener("click",(event) => {
   getPosition(event);
+
 });
 
 function getPosition(event){
