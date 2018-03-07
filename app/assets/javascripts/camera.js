@@ -67,7 +67,7 @@ function startWebcam() {
 
 var pointSize = 3;
 
-let xyArray = [];
+let xy = [];
 
 let i = 0;
 
@@ -82,14 +82,14 @@ function getPosition(event){
      var rect = canvas.getBoundingClientRect();
      var x = event.clientX - rect.left;
      var y = event.clientY - rect.top;
-     xyArray.push([x,y]);
+     xy.push([x,y]);
      drawCoordinates(x,y);
      i++;
      if(i>1){
-      drawLine(xyArray[i-2][0],xyArray[i-2][1],xyArray[i-1][0],xyArray[i-1][1])
+      drawLine(xy[i-2][0],xy[i-2][1],xy[i-1][0],xy[i-1][1])
      };
      if(i>2){
-      angle(xyArray[i-3][0],xyArray[i-3][1],xyArray[i-2][0],xyArray[i-2][1],xyArray[i-1][0],xyArray[i-1][1])
+      angle(xy[i-3][0],xy[i-3][1],xy[i-2][0],xy[i-2][1],xy[i-1][0],xy[i-1][1])
      };
 };
 
