@@ -7,6 +7,9 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.1.5'
 gem 'redis'
+gem 'coffee-rails'
+
+gem "jpeg_camera", "~> 1.3.2"
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
